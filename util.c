@@ -2,6 +2,57 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
+
+/**
+* X - 
+* @a: 
+*
+* Return:
+*/
+
+char *reallocCopy(char *format, int newSize)
+{
+	int i, len;
+	char *newP;
+
+	for (len = 0; format[len]; len++)
+	;
+
+	newP = malloc(sizeof(char) * (newSize + 1));
+
+	for (i = 0; i < newSize + 1; i++)
+	{
+		if (format[i])
+			newP[i] = format[i];
+		else
+			newP[i] = '*';
+	}
+	newP[i] = '\0';
+	return (newP);
+}
+/**
+* strCopyAlloc - copy and allocate str
+* @format: const str
+*
+* Return: new pointer 
+*/
+
+char *strCopyAlloc(const char *format)
+{
+	int i, len;
+	char *p;
+
+	for (len = 0; format[len]; len++)
+	;
+
+	p = malloc(sizeof(char) * (len + 1));
+
+	for (i = 0; format[i]; i++)
+		p[i] = format[i];
+	p[i] = '\0';
+
+	return (p);
+}
 /**
 * _puts - print a string
 * @str: str
@@ -58,7 +109,7 @@ int _putchar(char c)
 * Return: length except '\0'
 */
 
-int _strlen(char *str)
+int _strlen(const char *str)
 {
 	unsigned int i;
 

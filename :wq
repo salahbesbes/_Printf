@@ -1,38 +1,37 @@
+
 #include <stdio.h>
 #include <stdarg.h>
-#include "../holberton.h"
+#include "holberton.h"
 
 /**
-* checkType - check the char after % in the format str
-* @format: str
+* checkType - check the char after % in the copyFormat str
+* @copyFormat: str
 * @int: index if char
 * Return: void
 */
-
-void checkType(int i, const char *format, va_list vaList)
+char *checkType(int i, char *format, va_list vaList)
 {
 	unsigned int j;
 	int ch;
 	int nb;
-	char *str;
+	char *str, *arg;
 
-
+	str = strCopyAlloc(format);
 	switch (format[i])
 	{
 		case 'c':
 			{
 				ch = va_arg(vaList, int);
 				{
-					str = concatCharAt(i - 2, format, ch);
-					str = cleanTypeArg(str);
-					_puts(str);
+					printf("=\n" );
+					str = concatCharAt(i - 1, str, ch);
+					printf(" Ctrs = %s\n",str);
+					break;
 				}
-				break;
 			}
 		case 'i':
 			{
 				nb = va_arg(vaList, int);
-				_puts(convertBase(nb, 10));
 				break;
 			}
 		case 'd':
@@ -42,12 +41,12 @@ void checkType(int i, const char *format, va_list vaList)
 			}
 		case 's':
 			{
-				str = va_arg(vaList, char*);
+				arg = va_arg(vaList, char*);
 				if (str)
 				{
-					str = concatAt(i - 2, format, str);
-					str = cleanTypeArg(str);
-					_puts(str);
+					str = concatAt(i - 2, str, arg);
+					printf(" str = %s\n", str);
+					break;
 				}
 				else
 					printf("(nil)");
@@ -57,7 +56,8 @@ void checkType(int i, const char *format, va_list vaList)
 			break;
 
 	}
-	
+
+	return (str);
 }
 
 
@@ -65,16 +65,18 @@ int _printf(const char *format, ...)
 {
 	unsigned int i = 0;
 	va_list vaList;
-	
-
+	char *copyFormat;
+	copyFormat = strCopyAlloc(format);
 	va_start(vaList, format);
+	i = 0;
 	while (format[i])
 	{
 		if (format[i] == '%')
-			checkType(i + 1, format, vaList);
+			copyFormat = checkType(i + 1, copyFormat, vaList);
 
 		i++;
 	}
+	printf("pf = %s \n", copyFormat);
 	va_end(vaList);
 	return (0);
 }

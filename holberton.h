@@ -6,11 +6,13 @@ int _atoi(char*);
 int _printf(const char *format, ...);
 char *convertBase(unsigned int nb, int base);
 void _puts(char *str);
-char *concatAt(int pos, const char *des, char *src);
-char *cleanTypeArg(const char *format);
-int _strlen(char *str);
+char *concatAt(int pos, char *des, char *src);
+char *cleanTypeArg(char *format);
+int _strlen(const char *str);
 int checkTypeForClean(char c);
-int deleteChar(int pos, char *p);
-char *concatCharAt(int pos,const char *str, char c);
+char * deleteChar(int pos, char *p);
+char *concatCharAt(int pos, char *str, char c);
+char *strCopyAlloc(const char *format);
+char *munToString(int n);
 
 #endif

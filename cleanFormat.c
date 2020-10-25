@@ -38,10 +38,11 @@ int checkTypeForClean(char c)
 * Return: the length of the char we want to delete including % and type
 */
 
-int deleteChar(int pos, char *p)
+char * deleteChar(int pos, char *p)
 {
 
 	int i,j, nb, ok, len;
+	char *newP;
 
 	for (i = pos; p[i]; i++)
 	{
@@ -59,25 +60,33 @@ int deleteChar(int pos, char *p)
 			break;
 		}
 	}
-	for (i = pos; i < (pos + nb); i++)
-		p[i] = p[ i + nb];
-	return (nb);
+	for (j = i; j <= (i + nb) && p[j]; j++)
+	{
+		p[j] = p[j + nb];
+		/*
+		printf(" p[j+nb] = %c p[j] = %c \n", p[j + nb], p[j]);
+		*/
+		}
+	
+	
+	return (p);
 }
+
 /**
 * cleanTypeArg - delete any char between all % and type (f, d , x ...) in a
 * string 
 * @format: const str
 *
-* Description: in all cases we will end up with an array length is equal less then
+* Description: in all cases we will end up wiath an array length is equal less then
 * the original, we allocate a char array and we pass it into other functions so
 * that we can work on it 
 * Return: str need free()
 */
-
-char *cleanTypeArg(const char *format)
+/*
+char *cleanTypeArg(char *format)
 {
 
-	int len = 0, nb, i;
+	int len = 0, nb, i , j;
 	char *p;
 
 	for (len = 0; format[len]; len++)
@@ -90,7 +99,13 @@ char *cleanTypeArg(const char *format)
 	for (i = 0; p[i]; i++)
 	{
 		if (p[i] == '%')
+		{
 			nb = deleteChar(i, p);
-	}
+			for (j = i; j <= (i + nb); j++)
+				p[j] = p[j + nb];
+			p[j] = '\0';
+		}
+}
 	return (p);
 }
+*/

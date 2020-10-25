@@ -59,3 +59,28 @@ int _atoi(char *s)
 	num *= negatif;
 	return (num);
 }
+
+/**
+* munToString - convert int ro string
+* @n: int
+*
+* Return: str
+*/
+
+char *munToString(int n)
+{
+	int i = 0, m = 0, nb = 0;
+	char *str;
+
+	nb = n;
+	for (m = 0; nb > 0; nb /= 10, m++)
+	;
+
+	str = malloc(sizeof(int) * (m + 1));
+	for (i = 0; i < (m - 1); i++)
+	{
+		
+	}
+	return (str);
+}
+
