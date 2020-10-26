@@ -38,6 +38,11 @@ void checkType(int i, const char *format, va_list vaList)
 		case 'd':
 			{
 				nb = va_arg(vaList, int);
+				str = p_dec(nb);
+				str = concatAt(i - 2, format, str);
+				str = cleanTypeArg(str);
+				_puts(str);
+			     
 				break;
 			}
 		case 's':
