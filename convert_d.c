@@ -6,19 +6,19 @@
 int p_dec(int nb)
 {
 	int num;
-	int last = n % 10;
+	int last = nb % 10;
 	int dig;
 	int exp = 1;
 	int i = 1;
 
-	n = n / 10;
-	num = n;
+	nb = nb / 10;
+	num = nb;
 
 	if (last < 0)
 	{
 		_putchar('-');
 		num = -num;
-		n = -n;
+		nb = -nb;
 		last = -last;
 		i++;
 	}
@@ -29,7 +29,7 @@ int p_dec(int nb)
 			exp = exp * 10;
 			num = num / 10;
 		}
-		num = n;
+		num = nb;
 		while (exp > 0)
 		{
 			dig = num / exp;
