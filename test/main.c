@@ -14,13 +14,13 @@
 */
 int main(int argc, char *argv[])
 {
-UNUSED(argc);
-UNUSED(argv);
-    /*    
+	printf(" 20 = %d\n", 20);
+	/*    
     */
-_printf("---\t-----");
+_printf("---\t-----\n");
 
-	_printf(" %b  %o  %x  %u", 10,10,10,0);
+	int k =  _printf("%s%c%s%c%s%c\n", "ahmed",' ',"besbes", '-', "Salah",'*');
+	_printf(" k = %d\n", k);
 
 	/*
 _printf("%%\n");

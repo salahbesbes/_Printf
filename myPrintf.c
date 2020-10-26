@@ -123,8 +123,8 @@ int _printf(const char *format, ...)
 	}
 	for (i = 0; copyFormat[i]; i++)
 	;
-	printf(" [%d]\n",i);
-	printf("pf = %s\n", copyFormat);
+	_puts(copyFormat);
+
 	free(copyFormat);
 	va_end(vaList);
 	return (i);
