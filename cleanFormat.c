@@ -15,9 +15,11 @@
 
 int checkTypeForClean(char c)
 {
-	char type[] = "sdifxulc";
+	char type[] = "sdifxulcbegouxX";
 	int i;
 
+	if (c == '\0')
+		return (0);
 	for (i = 0; type[i]; i++)
 	{
 		if (c == type[i])
@@ -46,8 +48,7 @@ char *deleteChar(int pos, char *p)
 
 	for (len = 0; p[len]; len++)
 	;
-
-
+	ok = 0;
 	for (i = pos; p[i]; i++)
 	{
 		if (p[i] == '%')
@@ -64,7 +65,6 @@ char *deleteChar(int pos, char *p)
 			break;
 		}
 	}
-
 
 	newP = malloc(sizeof(char) * (len - nb + 1));
 

@@ -14,8 +14,8 @@
 
 char *concatCharAt(int pos, char *format, char c)
 {
-	int i, j, k;
-	int len1 = 0, len2 = 0, newStrLength = 0;
+	int i, j;
+	int len1 = 0;
 	char *newStr;
 
 	for (len1 = 0; format[len1]; len1++)

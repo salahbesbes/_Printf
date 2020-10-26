@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <limits.h>
+#define UNUSED(x) (void)(x)
 /**
 * main - create my own printf
 * @argc: nb of arguments
@@ -11,38 +12,51 @@
 * Return: 0
 * Error: 1
 */
-int main(void)
+int main(int argc, char *argv[])
 {
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
+   
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    _printf("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-    _printf("Unsigned octal:[%o]\n", ui);
-    printf("Unsigned octal:[%o]\n", ui);
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printf("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    return (0);
+UNUSED(argc);
+UNUSED(argv);
+    /*    
+    */
+_printf("---\t-----");
+
+	_printf(" %b  %o  %x  %u", 10,10,10,0);
+	_printf(" %s %d %i %c", "mehdi", 7, 14, 'a');
+
+	/*
+_printf("%%\n");
+_printf("%");
+_printf("%%r\n");
+_printf("hello%%\n");
+_printf("minehello%");
+_printf("hello%r\n");
+_printf("mineUnknown:[%r]\n");
+_printf("mineCharacter:[%c]\n", 'H');
+_printf("Let's try to printf a simple sentence.\n");
+_printf("String:[%s]\n", "I am a string !");
+_printf("mineCharacter:[%c]\n", 'H');
+_printf("String:[%s]\n", "I am a string !");
+	   _printf("hello%%\n");
+	   _printf("%%\n");
+	   _printf("%%r\n");
+%
+(nothing/error)
+%r
+hello%
+minehello
+hello%r
+mineUnknown:[%r]
+mineCharacter:[H]
+mineCharacter:[H]
+Let's try to printf a simple sentence.
+Let's try to printf a simple sentence.
+String:[I am a string!]
+String:[I am a string!]
+ * */
+return (0);
+
 }
 
 

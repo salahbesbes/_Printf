@@ -1,23 +1,20 @@
-
-#include "holberton.h"
-
-int p_int(int nb)
+int p_int(va_list arg)
 {
-	
+	int n = va_arg(arg, int);
 	int num;
-	int last = nb % 10;
+	int last = n % 10;
 	int dig;
 	int exp = 1;
 	int i = 1;
 
-	nb = nb / 10;
-	num = nb;
+	n = n / 10;
+	num = n;
 
 	if (last < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		num = -num;
-		nb = -nb;
+		n = -n;
 		last = -last;
 		i++;
 	}
@@ -28,17 +25,17 @@ int p_int(int nb)
 			exp = exp * 10;
 			num = num / 10;
 		}
-		num = nb;
+		num = n;
 		while (exp > 0)
 		{
 			dig = num / exp;
-			putchar(dig + '0');
+			_putchar(dig + '0');
 			num = num - (dig * exp);
 			exp = exp / 10;
 			i++;
 		}
 	}
-	putchar(last + '0');
+	_putchar(last + '0');
 
 	return (i);
 }
