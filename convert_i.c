@@ -1,20 +1,20 @@
-int p_int(va_list arg)
+int p_int(int nb)
 {
-	int n = va_arg(arg, int);
+	
 	int num;
-	int last = n % 10;
+	int last = nb % 10;
 	int dig;
 	int exp = 1;
 	int i = 1;
 
-	n = n / 10;
-	num = n;
+	nb = nb / 10;
+	num = nb;
 
 	if (last < 0)
 	{
 		_putchar('-');
 		num = -num;
-		n = -n;
+		nb = -nb;
 		last = -last;
 		i++;
 	}
