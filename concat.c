@@ -65,11 +65,10 @@ char *concatAt(int pos, char *format, char *src)
 	;
 	for (len2 = 0; src[len2]; len2++)
 	;
-
 	newStrLength = len1 + len2 + 1;
 
 	if (*src == '\0')
-		return ((char *)format);
+		return (format);
 	if (pos > len1)
 		return ("cant concat");
 

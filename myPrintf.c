@@ -27,6 +27,7 @@ char *checkType(int i, char *str, va_list vaList)
 				ch = va_arg(vaList, int);
 				{
 					str = concatCharAt(i - 1, str, ch);
+					str = deleteChar(i, str);
 				}
 				break;
 			}
@@ -47,12 +48,12 @@ char *checkType(int i, char *str, va_list vaList)
 		case 's':
 			{
 				arg = va_arg(vaList, char*);
-				if (str)
+				if (arg)
 				{
 					str = concatAt(i - 1, str, arg);
+					str = deleteChar(i, str);
 					break;
 				}
-				printf("(nil)");
 				break;
 			}
 		case 'b':
@@ -113,12 +114,14 @@ int _printf(const char *format, ...)
 	{
 
 
-		if (copyFormat[i] == '%')
+		if (copyFormat[i] == '%' )
 		{
+			if (copyFormat[i + 1] == '%' || copyFormat[i + 1] == '\0' )
+			{
+				copyFormat = handlePercent(i, copyFormat);
+				i++;
+			}
 			copyFormat = checkType(i + 1, copyFormat, vaList);
-			copyFormat = deleteChar(i, copyFormat);
-			i = 0;
-			continue;
 		}
 		i++;
 	}
