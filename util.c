@@ -66,18 +66,11 @@ void _puts(char *str)
 {
 	unsigned int i;
 
-	if (!str)
-	{
-		_putchar('N');
-		_putchar('U');
-		_putchar('L');
-		_putchar('L');
-		exit(98);
-	}
 	for (i = 0; str[i]; i++)
 	{
 		_putchar(str[i]);
 	}
+
 }
 
 

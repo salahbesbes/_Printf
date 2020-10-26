@@ -1,7 +1,7 @@
 
 #include "holberton.h"
 
-
+/*
 int p_dec(int nb)
 {
 	int num;
@@ -42,3 +42,4 @@ int p_dec(int nb)
 
 	return (i);
 }
+*/
