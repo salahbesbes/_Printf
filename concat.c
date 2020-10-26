@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /**
-* concatCharAt - concat a char to a string at pos 
+* concatCharAt - concat a char to a string at pos
 * @pos: concat at pos
 * @format: string
 * @c: char
@@ -17,6 +17,7 @@ char *concatCharAt(int pos, char *format, char c)
 	int i, j, k;
 	int len1 = 0, len2 = 0, newStrLength = 0;
 	char *newStr;
+
 	for (len1 = 0; format[len1]; len1++)
 	;
 	if (pos > len1 + 1)
@@ -32,12 +33,10 @@ char *concatCharAt(int pos, char *format, char c)
 		if (i == pos)
 			newStr[i] = c;
 		if (i > pos)
-		{
 			newStr[i] = format[i - 1];
-		}
 	}
 
-	
+
 	newStr[i] = '\0';
 	free(format);
 	return (newStr);
@@ -46,7 +45,8 @@ char *concatCharAt(int pos, char *format, char c)
 /**
 * concatAt - concat *src to *format at position pos
 * @pos: position from where we cant to concat
-*
+* @format: str
+* @src: substring to be copied
 * Return: str need free()
 */
 
@@ -63,7 +63,7 @@ char *concatAt(int pos, char *format, char *src)
 		format = "";
 	for (len1 = 0; format[len1]; len1++)
 	;
-	for (len2= 0; src[len2]; len2++)
+	for (len2 = 0; src[len2]; len2++)
 	;
 
 	newStrLength = len1 + len2 + 1;
@@ -73,9 +73,9 @@ char *concatAt(int pos, char *format, char *src)
 	if (pos > len1)
 		return ("cant concat");
 
-	
+
 	newStr = malloc(sizeof(char) * newStrLength);
-	for (i = 0 , j = 0, k = 0; i < newStrLength ; i++)
+	for (i = 0, j = 0, k = 0; i < newStrLength; i++)
 	{
 		if (src[k] && i >= pos)
 		{

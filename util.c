@@ -4,10 +4,11 @@
 #include "holberton.h"
 
 /**
-* X - 
-* @a: 
+* reallocCopy - realloc and copy
+* @format: str
+* @newSize: int
 *
-* Return:
+* Return: str
 */
 
 char *reallocCopy(char *format, int newSize)
@@ -30,11 +31,12 @@ char *reallocCopy(char *format, int newSize)
 	newP[i] = '\0';
 	return (newP);
 }
+
 /**
 * strCopyAlloc - copy and allocate str
 * @format: const str
 *
-* Return: new pointer 
+* Return: new pointer
 */
 
 char *strCopyAlloc(const char *format)
@@ -72,14 +74,6 @@ void _puts(char *str)
 		_putchar('L');
 		exit(98);
 	}
-	/*
-	if (*str == '\0')
-	{
-		_putchar('\'');
-		_putchar('\'');
-		exit(98);
-	}
-	*/
 	for (i = 0; str[i]; i++)
 	{
 		_putchar(str[i]);

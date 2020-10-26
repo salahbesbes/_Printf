@@ -6,15 +6,18 @@
 
 /**
 * checkType - check the char after % in the copyFormat str
-* @copyFormat: str
-* @int: index if char
+* @str: str
+* @i: index if char
+* @vaList: va_list
+*
 * Return: void
 */
+
 char *checkType(int i, char *str, va_list vaList)
 {
 	unsigned int j;
 	int ch;
-	unsigned int nb;
+	int nb;
 	char *arg;
 
 	switch (str[i])
@@ -30,11 +33,15 @@ char *checkType(int i, char *str, va_list vaList)
 		case 'i':
 			{
 				nb = va_arg(vaList, int);
+				arg = numToString(nb);
+				str = concatAt(i - 1, str, arg);
 				break;
 			}
 		case 'd':
 			{
 				nb = va_arg(vaList, int);
+				arg = numToString(nb);
+				str = concatAt(i - 1, str, arg);
 				break;
 			}
 		case 's':
@@ -50,12 +57,16 @@ char *checkType(int i, char *str, va_list vaList)
 			}
 		default:
 			break;
-
 	}
-
 	return (str);
 }
 
+/**
+ * _printf - My printf
+ * @format: const char
+ *
+ * Return: nb of char printed
+ */
 
 int _printf(const char *format, ...)
 {
@@ -79,6 +90,7 @@ int _printf(const char *format, ...)
 	}
 	for (i = 0; copyFormat[i]; i++)
 	;
+	printf(" [i] = %d\n", i);
 	printf("%s\n", copyFormat);
 	free(copyFormat);
 	va_end(vaList);

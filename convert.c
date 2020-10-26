@@ -64,22 +64,36 @@ int _atoi(char *s)
 * munToString - convert int ro string
 * @n: int
 *
-* Return: str
+* Return: str need free()
 */
 
-char *munToString(int n)
+char *numToString(int n)
 {
-	int i = 0, m = 0, nb = 0;
+	int i = 0, m = 0, nb = 0, len = 0;
 	char *str;
 
 	nb = n;
+	if (nb < 0)
+		nb *= -1;
 	for (m = 0; nb > 0; nb /= 10, m++)
 	;
-
-	str = malloc(sizeof(int) * (m + 1));
-	for (i = 0; i < (m - 1); i++)
+	len = m - 1;
+	if (n < 0)
 	{
-		
+		nb = -n;
+		str = malloc(sizeof(char) * (m + 1));
+		str[0] = '-';
+		for (i = m; i > 0; i--, nb /= 10)
+			str[i] = (nb % 10) + '0';
+		str[m + 1] = '\0';
+
+	}
+	else
+	{
+		str = malloc(sizeof(char) * (m));
+		for (i = len; i >= 0; i--, n /= 10)
+			str[i] = (n % 10) + '0';
+		str[len + 1] = '\0';
 	}
 	return (str);
 }
