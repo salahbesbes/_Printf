@@ -1,4 +1,9 @@
 #include <stdio.h>
+/**
+ * p_dec - prints decimal.
+ * @arg: argument to print
+ * Return: number of characters printed
+ */
 int p_dec(int nb)
 {
 	int num;

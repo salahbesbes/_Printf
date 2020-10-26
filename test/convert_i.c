@@ -1,6 +1,8 @@
 #include <stdio.h>
-int p_dec(int nb)
+
+int p_int(int nb)
 {
+	
 	int num;
 	int last = nb % 10;
 	int dig;

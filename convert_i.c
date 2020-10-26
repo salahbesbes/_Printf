@@ -1,3 +1,4 @@
+#include <stdio.h>
 int p_int(int nb)
 {
 	
@@ -12,7 +13,7 @@ int p_int(int nb)
 
 	if (last < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		num = -num;
 		nb = -nb;
 		last = -last;
@@ -29,13 +30,13 @@ int p_int(int nb)
 		while (exp > 0)
 		{
 			dig = num / exp;
-			_putchar(dig + '0');
+			putchar(dig + '0');
 			num = num - (dig * exp);
 			exp = exp / 10;
 			i++;
 		}
 	}
-	_putchar(last + '0');
+	putchar(last + '0');
 
 	return (i);
 }
