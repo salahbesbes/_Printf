@@ -1,6 +1,6 @@
 
 #include "holberton.h"
-
+/*
 int p_int(int nb)
 {
 	
@@ -42,3 +42,4 @@ int p_int(int nb)
 
 	return (i);
 }
+*/
