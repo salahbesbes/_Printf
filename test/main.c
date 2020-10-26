@@ -15,9 +15,9 @@ int main(void)
 {
    
 
+	_printf("\"  \\ \\n \n", NULL,"holberton", '\t');
+	printf("\"  \\ \\n \n", NULL, "holberton", '\t');
 	/*
-	_printf("");
-	printf("%s", "");
 
 	_printf("%s %c%%sa\n", "salah", '*');
 	printf("%s %c%%sa\n", "salah", '*');
