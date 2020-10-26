@@ -17,7 +17,6 @@ int main(void)
 
 	_printf("\"  \\ \\n \n", NULL,"holberton", '\t');
 	printf("\"  \\ \\n \n", NULL, "holberton", '\t');
-	/*
 
 	_printf("%s %c%%sa\n", "salah", '*');
 	printf("%s %c%%sa\n", "salah", '*');
@@ -38,6 +37,7 @@ _printf("mineCharacter:[%c]\n", 'H');
 _printf("Let's try to printf a simple sentence.\n");
 _printf("String:[%s]\n", "I am a string !");
 _printf("String:[%s]\n", "I am a string !");
+/*
 	   _printf("hello%%\n");
 	   _printf("%%\n");
 	   _printf("%%r\n");

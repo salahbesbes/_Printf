@@ -50,7 +50,6 @@ char *checkType(int i, char *str, va_list vaList)
 				arg = va_arg(vaList, char*);
 				if (arg == NULL)
 				{
-					printf(" arg = %s\n", arg);
 					str = concatAt(i - 1, str, "(null)");
 					str = deleteChar(i, str);
 					break;
