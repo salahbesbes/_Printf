@@ -16,5 +16,6 @@ char *strCopyAlloc(const char *format);
 char *numToString(int n);
 int p_int(int nb);
 int p_dec(int nb);
+char *handlePercent(int i, char *p);
 
 #endif
