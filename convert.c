@@ -12,12 +12,10 @@
 * Return: str need free()
 */
 
-char *convertBase(unsigned int num, int base)
+char *convertBase(unsigned int num, unsigned int base)
 {
-	char bases[] = "0123456789ABCDEF";
-
+	char bases[] = "0123456789abcdef";
 	char *ptr, *buffer;
-	int i;
 
 	buffer = malloc(sizeof(char) * 50);
 	/* filling the array from the end to the start*/
@@ -31,7 +29,6 @@ char *convertBase(unsigned int num, int base)
 	} while (num != 0);
 
 	/* we are not traiting the negative int*/
-
 
 
 	return (ptr);

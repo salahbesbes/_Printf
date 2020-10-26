@@ -4,7 +4,7 @@
 int _putchar(char);
 int _atoi(char *str);
 int _printf(const char *format, ...);
-char *convertBase(unsigned int nb, int base);
+char *convertBase(unsigned int nb, unsigned int base);
 void _puts(char *str);
 char *concatAt(int pos, char *des, char *src);
 char *cleanTypeArg(char *format);
