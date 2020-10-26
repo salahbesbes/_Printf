@@ -25,7 +25,7 @@ int p_int(int nb)
 			exp = exp * 10;
 			num = num / 10;
 		}
-		num = n;
+		num = nb;
 		while (exp > 0)
 		{
 			dig = num / exp;
