@@ -1,5 +1,5 @@
 /**
- * p_dec - prints decimal
+ * p_dec - prints decimal.
  * @arg: argument to print
  * Return: number of characters printed
  */
