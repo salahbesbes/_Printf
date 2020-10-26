@@ -1,9 +1,11 @@
-
-#include "holberton.h"
-
-int p_int(int nb)
+#include <stdio.h>
+/**
+ * p_dec - prints decimal.
+ * @arg: argument to print
+ * Return: number of characters printed
+ */
+int p_dec(int nb)
 {
-	
 	int num;
 	int last = nb % 10;
 	int dig;

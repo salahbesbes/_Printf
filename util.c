@@ -70,7 +70,10 @@ void _puts(char *str)
 	{
 		_putchar(str[i]);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> af21964afba9bff84ef0b4748e53d33e73909a41
 }
 
 
