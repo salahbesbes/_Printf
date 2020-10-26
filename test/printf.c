@@ -32,7 +32,10 @@ void checkType(int i, const char *format, va_list vaList)
 		case 'i':
 			{
 				nb = va_arg(vaList, int);
-				_puts(convertBase(nb, 10));
+				str = p_int(nb);
+				str = concatAt(i - 2, format, str);
+				str = cleanTypeArg(str);
+				_puts(str);
 				break;
 			}
 		case 'd':
