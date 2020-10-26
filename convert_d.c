@@ -1,3 +1,4 @@
+#include "holberton.h"
 
 int p_dec(int nb)
 {
