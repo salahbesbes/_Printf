@@ -3,9 +3,8 @@
  * @arg: argument to print
  * Return: number of characters printed
  */
-int p_dec(va_list arg)
+int p_dec(int nb)
 {
-	int n = va_arg(arg, int);
 	int num;
 	int last = n % 10;
 	int dig;
