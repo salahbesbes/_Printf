@@ -103,7 +103,7 @@ char *checkType(int i, char *str, va_list vaList)
 
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, ok = 0;
+	unsigned int i = 0;
 	va_list vaList;
 	char *copyFormat;
 	copyFormat = strCopyAlloc(format);
@@ -112,7 +112,6 @@ int _printf(const char *format, ...)
 	while (copyFormat[i])
 	{
 
-		ok = checkTypeForClean(copyFormat[i + 1]);
 
 		if (copyFormat[i] == '%' )
 		{
