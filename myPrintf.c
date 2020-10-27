@@ -34,7 +34,7 @@ char *checkType(int i, char *str, va_list vaList)
 		case 'i':
 			{
 				b10 = va_arg(vaList, int);
-				arg = convertBase(b10, 10);
+				arg = convertBase(b10, 10, ' ');
 				str = concatAt(i - 1, str, arg);
 				str = deleteChar(i, str);
 				break;
@@ -53,7 +53,6 @@ char *checkType(int i, char *str, va_list vaList)
 				if (arg == NULL)
 				{
 					str = concatAt(i - 1, str, "(null)");
-				 
 					str = deleteChar(i, str);
 					break;
 				}
@@ -63,12 +62,11 @@ char *checkType(int i, char *str, va_list vaList)
 					str = deleteChar(i, str);
 					break;
 				}
-				
 			}
 		case 'b':
 			{
 				b10 = va_arg(vaList, unsigned int);
-				arg = convertBase(b10, 2);
+				arg = convertBase(b10, 2, ' ');
 				str = concatAt(i - 1, str, arg);
 				str = deleteChar(i, str);
 				break;
@@ -78,7 +76,7 @@ char *checkType(int i, char *str, va_list vaList)
 		case 'u':
 			{
 				b10 = va_arg(vaList, unsigned int);
-				arg = convertBase(b10, 10);
+				arg = convertBase(b10, 10, ' ');
 				str = concatAt(i - 1, str, arg);
 				str = deleteChar(i, str);
 				break;
@@ -86,7 +84,7 @@ char *checkType(int i, char *str, va_list vaList)
 		case 'o':
 			{
 				b10 = va_arg(vaList, unsigned int);
-				arg = convertBase(b10, 8);
+				arg = convertBase(b10, 8, ' ');
 				str = concatAt(i - 1, str, arg);
 				str = deleteChar(i, str);
 				break;
@@ -94,7 +92,7 @@ char *checkType(int i, char *str, va_list vaList)
 		case 'x':
 			{
 				b10 = va_arg(vaList, unsigned int);
-				arg = convertBase(b10, 16);
+				arg = convertBase(b10, 16, 'x');
 				str = concatAt(i - 1, str, arg);
 				str = deleteChar(i, str);
 				break;
@@ -103,7 +101,7 @@ char *checkType(int i, char *str, va_list vaList)
 		case 'X':
 			{
 				b10 = va_arg(vaList, unsigned int);
-				arg = convertBase(b10, 16);
+				arg = convertBase(b10, 16, 'X');
 				str = concatAt(i - 1, str, arg);
 				str = deleteChar(i, str);
 				break;
@@ -113,12 +111,6 @@ char *checkType(int i, char *str, va_list vaList)
 			{
 				arg = va_arg(vaList, char*);
 				arg = rot13(arg);
-				/*
-				for (nb = 0; arg[i]; nb++)
-				{
-					printf(" arg[nb] = %c\n", arg[nb]);
-				}
-				*/
 				str = concatAt(i - 1, str, arg);
 				str = deleteChar(i, str);
 				break;
@@ -153,7 +145,7 @@ int _printf(const char *format, ...)
 {
 	unsigned int i = 0, ok = 0;
 	va_list vaList;
-	char *copyFormat, *str;
+	char *copyFormat;
 
 	copyFormat = strCopyAlloc(format);
 	i = _strlen(copyFormat);
@@ -161,20 +153,20 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (copyFormat[i])
 	{
-		if (copyFormat[i] == '%' )
+		if (copyFormat[i] == '%')
 		{
-			
-			ok = checkTypeForClean(copyFormat[i]);
+			ok = checkTypeForClean(copyFormat[i + 1]);
+
+
 			if (ok == 2)
 			{
 				copyFormat = handlePercent(i, copyFormat);
 				i++;
-
 			}
 			if (ok == 0)
 				copyFormat = handlePercent(i, copyFormat);
 			copyFormat = checkType(i + 1, copyFormat, vaList);
-			}
+		}
 		i++;
 	}
 	for (i = 0; copyFormat[i]; i++)

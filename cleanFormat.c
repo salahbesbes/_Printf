@@ -76,7 +76,7 @@ char *deleteChar(int pos, char *p)
 		if (j < i)
 			newP[j] = p[j];
 		else
-			newP[j] = p[j + nb];
+			newP[j] = p[j + nb + 1];
 	}
 
 	free(p);
