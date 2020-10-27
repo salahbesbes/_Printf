@@ -15,7 +15,7 @@
 
 int checkTypeForClean(char c)
 {
-	char type[] = "sdifxulcbegouxX";
+	char type[] = "sdifxulcbegouxXRrp";
 	int i;
 
 	if (c == '\0')

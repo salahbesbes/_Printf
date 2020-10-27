@@ -36,6 +36,7 @@ char *checkType(int i, char *str, va_list vaList)
 				b10 = va_arg(vaList, int);
 				arg = convertBase(b10, 10);
 				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
 				break;
 			}
 		case 'd':
@@ -43,6 +44,7 @@ char *checkType(int i, char *str, va_list vaList)
 				nb = va_arg(vaList, int);
 				arg = numToString(nb);
 				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
 				break;
 			}
 		case 's':
@@ -67,6 +69,7 @@ char *checkType(int i, char *str, va_list vaList)
 				b10 = va_arg(vaList, unsigned int);
 				arg = convertBase(b10, 2);
 				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
 				break;
 
 
@@ -76,6 +79,7 @@ char *checkType(int i, char *str, va_list vaList)
 				b10 = va_arg(vaList, unsigned int);
 				arg = convertBase(b10, 10);
 				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
 				break;
 			}
 		case 'o':
@@ -83,6 +87,7 @@ char *checkType(int i, char *str, va_list vaList)
 				b10 = va_arg(vaList, unsigned int);
 				arg = convertBase(b10, 8);
 				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
 				break;
 			}
 		case 'x':
@@ -90,9 +95,45 @@ char *checkType(int i, char *str, va_list vaList)
 				b10 = va_arg(vaList, unsigned int);
 				arg = convertBase(b10, 16);
 				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
 				break;
 
 			}
+		case 'X':
+			{
+				b10 = va_arg(vaList, unsigned int);
+				arg = convertBase(b10, 16);
+				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
+				break;
+
+			}
+		case 'R':
+			{
+				arg = va_arg(vaList, char*);
+				arg = rot13(arg);
+				/*
+				for (nb = 0; arg[i]; nb++)
+				{
+					printf(" arg[nb] = %c\n", arg[nb]);
+				}
+				*/
+				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
+				break;
+
+			}
+		case 'r':
+			{
+				arg = va_arg(vaList, char*);
+				arg = rev_string(arg);
+				str = concatAt(i - 1, str, arg);
+				str = deleteChar(i, str);
+				break;
+			}
+
+
+
 
 		default:
 			break;
@@ -117,8 +158,6 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (copyFormat[i])
 	{
-
-
 		if (copyFormat[i] == '%' )
 		{
 			if (copyFormat[i + 1] == '%' || copyFormat[i + 1] == '\0' )

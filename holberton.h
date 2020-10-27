@@ -17,5 +17,7 @@ char *numToString(int n);
 int p_int(int nb);
 int p_dec(int nb);
 char *handlePercent(int i, char *p);
+char *rev_string(char *s);
+char *rot13(char *str);
 
 #endif

@@ -95,3 +95,54 @@ char *numToString(int n)
 	return (str);
 }
 
+/**
+ * rot13 -  encode string wih rot13
+ * @str: string
+ *
+ * Return: encodded string
+ */
+char *rot13(char *str) {
+  int i, j;
+  char *rot = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+  char *newStr, *alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+  newStr = strCopyAlloc(str);
+  for (i = 0; newStr[i]; i++)
+  {
+    for (j = 0; j < 52; j++)
+    {
+      if (newStr[i] == alpha[j])
+      {
+        newStr[i] = rot[j];
+        break;
+      }
+    }
+  }
+  return (newStr);
+}
+
+/**
+ * rev_string - everses a string.
+ * @s: string
+ * return: string
+ */
+char *rev_string(char *s)
+{
+	int length = 0, i;
+	char tmp, *newStr;
+
+	newStr = strCopyAlloc(s);
+	for (i = 0; newStr[i]; i++)
+	{
+		length++;
+	}
+
+	for (i = 0; i < length / 2; i++)
+	{
+		tmp = newStr[length - 1 - i];
+		newStr[length - 1 - i] = newStr[i];
+		newStr[i] = tmp;
+
+	}
+	return (newStr);
+}
