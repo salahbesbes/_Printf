@@ -21,7 +21,8 @@ int main(void)
 
     int a=10; 
 int* p =&a; 
-_printf("%x\n", &a); 
+_printf("%%  %s%", "salah");
+printf("%%  %");
     /*
     size_t Gb = 1024*1024*1024;
 char *a = (char *)malloc(2 * Gb * sizeof(char));

@@ -20,6 +20,9 @@ int checkTypeForClean(char c)
 
 	if (c == '\0')
 		return (0);
+	if (c == '%')
+		return (2);
+
 	for (i = 0; type[i]; i++)
 	{
 		if (c == type[i])
@@ -75,7 +78,7 @@ char *deleteChar(int pos, char *p)
 		else
 			newP[j] = p[j + nb];
 	}
-	newP[j] = '\0';
+
 	free(p);
 	return (newP);
 }

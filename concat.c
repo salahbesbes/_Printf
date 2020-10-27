@@ -78,7 +78,6 @@ char *concatAt(int pos, char *format, char *src)
 			j++;
 		}
 	}
-	newStr[i] = '\0';
 	free(format);
 	return (newStr);
 }

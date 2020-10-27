@@ -53,6 +53,7 @@ char *checkType(int i, char *str, va_list vaList)
 				if (arg == NULL)
 				{
 					str = concatAt(i - 1, str, "(null)");
+				 
 					str = deleteChar(i, str);
 					break;
 				}
@@ -150,30 +151,35 @@ char *checkType(int i, char *str, va_list vaList)
 
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, ok = 0;
 	va_list vaList;
-	char *copyFormat;
+	char *copyFormat, *str;
 
 	copyFormat = strCopyAlloc(format);
+	i = _strlen(copyFormat);
 	va_start(vaList, format);
 	i = 0;
 	while (copyFormat[i])
 	{
 		if (copyFormat[i] == '%' )
 		{
-			if (copyFormat[i + 1] == '%' || copyFormat[i + 1] == '\0' )
+			
+			ok = checkTypeForClean(copyFormat[i]);
+			if (ok == 2)
 			{
 				copyFormat = handlePercent(i, copyFormat);
 				i++;
+
 			}
+			if (ok == 0)
+				copyFormat = handlePercent(i, copyFormat);
 			copyFormat = checkType(i + 1, copyFormat, vaList);
-		}
+			}
 		i++;
 	}
 	for (i = 0; copyFormat[i]; i++)
 	;
 	_puts(copyFormat);
-
 	free(copyFormat);
 	va_end(vaList);
 	return (i);
