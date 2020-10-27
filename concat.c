@@ -56,23 +56,21 @@ char *concatAt(int pos, char *format, char *src)
 	int i, j, k;
 	int len1 = 0, len2 = 0, newStrLength = 0;
 	char *newStr;
-
+/*
 	if (!src)
 		src = "";
 	if (!format)
 		format = "";
+		*/
 	for (len1 = 0; format[len1]; len1++)
 	;
 	for (len2 = 0; src[len2]; len2++)
 	;
 	newStrLength = len1 + len2 + 1;
 
-	if (*src == '\0')
-		return (format);
 	if (pos > len1)
 		return ("cant concat");
-
-
+printf(" src = %s\n", src);
 	newStr = malloc(sizeof(char) * newStrLength);
 	for (i = 0, j = 0, k = 0; i < newStrLength; i++)
 	{

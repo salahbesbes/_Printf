@@ -48,13 +48,19 @@ char *checkType(int i, char *str, va_list vaList)
 		case 's':
 			{
 				arg = va_arg(vaList, char*);
-				if (arg)
+				if (arg == NULL)
+				{
+					str = concatAt(i - 1, str, "(null)");
+					str = deleteChar(i, str);
+					break;
+				}
+				else
 				{
 					str = concatAt(i - 1, str, arg);
 					str = deleteChar(i, str);
 					break;
 				}
-				break;
+				
 			}
 		case 'b':
 			{
