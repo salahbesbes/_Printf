@@ -153,6 +153,7 @@ int _printf(const char *format, ...)
 	unsigned int i = 0;
 	va_list vaList;
 	char *copyFormat;
+
 	copyFormat = strCopyAlloc(format);
 	va_start(vaList, format);
 	i = 0;
