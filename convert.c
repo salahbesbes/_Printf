@@ -9,30 +9,37 @@
 * convertBase - convert a positice integer to any base
 * @num: unsigned int to convert
 * @base: (2 - 8 - 10 - 16)
+* @type: char
+*
 * Return: str need free()
 */
 
-char *convertBase(unsigned int num, unsigned int base)
+char *convertBase(unsigned int num, unsigned int base, char type)
 {
-	char bases[] = "0123456789abcdef";
+
+	char *bases = "0123456789abcdef";
 	char *ptr, *buffer;
 
-	buffer = malloc(sizeof(char) * 50);
+	if (type == 'X')
+		bases = "0123456789ABCDEF";
 	/* filling the array from the end to the start*/
+
+	buffer = malloc(sizeof(char) * 50);
 	ptr = &buffer[49];
 	*ptr = '\0';
-
 	do {
 		/* *--ptr   is executed before the assainment do*/
-		*--ptr = bases[num % base]; /* base[48] = 'reste' */
-		num /= base; /* our counter */
+		*--ptr = bases[num % base];
+		num /= base;
 	} while (num != 0);
-
 	/* we are not traiting the negative int*/
-
-
 	return (ptr);
 }
+/**
+ * _atoi - didnt use int
+ * s: str
+ * Return: integer
+ */
 int _atoi(char *s)
 {
 
@@ -58,7 +65,7 @@ int _atoi(char *s)
 }
 
 /**
-* munToString - convert int ro string
+* numToString - convert int ro string
 * @n: int
 *
 * Return: str need free()
@@ -95,3 +102,52 @@ char *numToString(int n)
 	return (str);
 }
 
+/**
+ * rot13 -  encode string wih rot13
+ * @str: string
+ *
+ * Return: encodded string
+ */
+char *rot13(char *str)
+{
+	int i, j;
+	char *rot = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *newStr, *alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+	newStr = strCopyAlloc(str);
+	for (i = 0; newStr[i]; i++)
+	{
+		for (j = 0; j < 52; j++)
+		{
+			if (newStr[i] == alpha[j])
+			{
+				newStr[i] = rot[j];
+				break;
+			}
+		}
+	}
+	return (newStr);
+}
+
+/**
+ * rev_string - everses a string.
+ * @s: string
+ * Return: string
+ */
+char *rev_string(char *s)
+{
+	int length = 0, i;
+	char tmp, *newStr;
+
+	newStr = strCopyAlloc(s);
+	for (i = 0; newStr[i]; i++)
+		length++;
+
+	for (i = 0; i < length / 2; i++)
+	{
+		tmp = newStr[length - 1 - i];
+		newStr[length - 1 - i] = newStr[i];
+		newStr[i] = tmp;
+	}
+	return (newStr);
+}

@@ -15,11 +15,14 @@
 
 int checkTypeForClean(char c)
 {
-	char type[] = "sdifxulcbegouxX";
+	char type[] = "sdifxulcbegouxXRrp";
 	int i;
 
 	if (c == '\0')
 		return (0);
+	if (c == '%')
+		return (2);
+
 	for (i = 0; type[i]; i++)
 	{
 		if (c == type[i])
@@ -73,9 +76,9 @@ char *deleteChar(int pos, char *p)
 		if (j < i)
 			newP[j] = p[j];
 		else
-			newP[j] = p[j + nb];
+			newP[j] = p[j + nb + 1];
 	}
-	newP[j] = '\0';
+
 	free(p);
 	return (newP);
 }

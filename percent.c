@@ -5,9 +5,10 @@
 
 /**
 * handlePercent - if we found '%' we will replace replce it by '\'
-* @a: 
+* @index: int
+* @p: str
 *
-* Return:
+* Return:newP
 */
 
 char *handlePercent(int index, char *p)
@@ -15,9 +16,8 @@ char *handlePercent(int index, char *p)
 
 	int i;
 
-		for (i = index; p[i]; i++)
-		{
-			p[i] = p[i + 1];
-		}
+	for (i = index; p[i]; i++)
+		p[i] = p[i + 1];
+
 	return (p);
 }
