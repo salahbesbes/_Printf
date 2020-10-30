@@ -59,7 +59,7 @@ int numToString(va_list vaList, int *index)
 		len = _puts(str);
 	}
 		free(str);
-		return (len);
+		return (len - 2);
 }
 /**
  * rev_string - everses a string.
