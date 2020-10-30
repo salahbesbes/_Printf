@@ -11,13 +11,23 @@
  */
 int main(void)
 {
-	 /*
 	int len, len2;
+	/*
 	unsigned int l = 11156465;
 	long int res = UINT_MAX ;
 	*/
-	
+	len = _printf("iddi%diddiiddi\n", 1024);
+	len2 = printf("iddi%diddiiddi\n", 1024);
 
+
+	printf(" got = %d expect = %d\n", len, len2);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 
 
 
