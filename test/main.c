@@ -12,19 +12,30 @@
 int main(void)
 {
 	 /*
+	 */
 	int len, len2;
 	unsigned int l = 11156465;
 	long int res = UINT_MAX ;
-	*/
 
 
-
+	len = _printf("aaa%S", "\n");
+	len2 = printf("aaa\\x0A");
+	
+	printf(" got = %d expect = %d\n", len , len2);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+/*
+_printf("%s", "This sentence is retrieved from va_args!\n");
 
 
 
 	_printf("%+05.5d", 50);
 
-	/*
 
 	_printf("%p\n", (void *)0x7fff5100b608);
 	printf("%p\n",(void *)0x7fff5100b608);	
@@ -111,8 +122,6 @@ printf("%pppp", (void *)0x7fff5100b6f8);
 	printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
 	_printf("uuoxxX%xuoXo\n", 1024);
 	printf("uuoxxX%xuoXo\n", 1024);
-	*/
-		/*
 	_printf("%b\n", 5);
 	_printf("%o\n", 43);
 	printf("%o\n", 43);
@@ -148,8 +157,6 @@ printf("%d\n", INT_MIN);
 	printf("%d - %d = %d\n", 1024, 2048, -1024);
 	_printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
-	 * */
-	/*
 	_printf("%i\n", 1024);
 	_printf("%i\n", -1024);
 	_printf("%i\n", 0);
@@ -221,6 +228,5 @@ printf("css%ccs%scscscs\n", 'T', "Test");
 	printf("%K\n");
 _printf("%K\n");
 */
-
 return (0);
 }

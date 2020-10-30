@@ -101,7 +101,7 @@ int checkNonPrintableChar(char ch)
 {
 
 	char base[16] = "0123456789ABCDEF";
-	char *buffer, *ptr;
+	char *buffer, *ptr, len;
 
 	buffer = malloc(sizeof(char) * 10);
 	if (!buffer)
@@ -115,10 +115,9 @@ int checkNonPrintableChar(char ch)
 	*--ptr = '0';
 	*--ptr = 'x';
 	*--ptr = '\\';
-	_puts(ptr);
+	len = _puts(ptr);
 	free(buffer);
-
-	return (0);
+	return (len);
 }
 
 
@@ -133,7 +132,7 @@ int checkNonPrintableChar(char ch)
 int replaceNonPrintableChar(va_list vaList, int *index)
 {
 	char *str;
-	unsigned int i;
+	unsigned int i, len;
 
 
 	*index += 2;
@@ -143,11 +142,11 @@ int replaceNonPrintableChar(va_list vaList, int *index)
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] < 32 || str[i] >= 127)
-			checkNonPrintableChar(str[i]);
+			len = checkNonPrintableChar(str[i]);
 		else 
 			_putchar(str[i]);
 	}
-	return (i - 2);
+	return (i + len - 2 - 1);
 }
 
 

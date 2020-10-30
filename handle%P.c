@@ -32,7 +32,7 @@ int convertLongIntToBase16(long int num)
 	*--ptr = '0';
 	len = _puts(ptr);
 	free(buffer);
-	return (len - 2);
+	return (len);
 }
 
 
