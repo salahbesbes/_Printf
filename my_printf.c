@@ -21,8 +21,9 @@ int _printf(const char *format, ...)
 			allFlags = getAllFlags(i, (char *)format);
 			checkflags(allFlags);
 			printf(" allFlags = %s\n", allFlags);
-			treatAllCases(format, index, &nbOfCharAdded, valist);
 			*/
+			treatAllCases(format, index, &nbOfCharAdded, valist);
+			/*
 			if (format[i + 1] == '%')
 			{
 				_putchar(format[i + 1]);
@@ -41,7 +42,6 @@ int _printf(const char *format, ...)
 			else 
 				i++;
 			continue;
-			/*
 			*/
 		}
 		_putchar(format[i]);
