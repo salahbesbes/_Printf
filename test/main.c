@@ -11,20 +11,16 @@
  */
 int main(void)
 {
-	unsigned int len, len2;
-	unsigned int l = 11156465;
+	unsigned int len = 1, len2= 1;
 	
-	long int k;
-	long int res = UINT_MAX ;
 
 
 
-
-
-len = _printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
-	len2 = printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+len = _printf("%hd", SHRT_MAX);
+	len2 = printf("%hd", SHRT_MAX);
 
 	/*
+
 len = _printf("%li", LONG_MIN);
 	len2 = printf("%li", LONG_MIN);
 len = _printf("%lX", ULONG_MAX);
@@ -76,16 +72,16 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
  
 
 
+
+
+
+
+
+
+
+
+
 */
-
-
-
-
-
-
-
-
-
 
 	printf("\n got %d  expect = %d\n", len , len2);
 	fflush(stdout);
