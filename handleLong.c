@@ -17,6 +17,7 @@ int convertLongIntToAnyBase(unsigned long long int num, char ch)
 	char *ptr = NULL, *buffer = NULL;
 	unsigned int len = 0, base = 10;
 
+
 	switch (ch)
 	{
 		case 'x':
@@ -31,6 +32,7 @@ int convertLongIntToAnyBase(unsigned long long int num, char ch)
 			}
 		case 'X':
 			{
+				bases = "0123456789ABCDEF";
 				base = 16;
 				break;
 			}
@@ -61,22 +63,43 @@ int printLongUnsigned(va_list vaList, int *index, char ch)
 {
 
 	unsigned long int num;
-	int len;
+	unsigned int len;
 
 	*index += 2;
 	num = va_arg(vaList, unsigned long int);
 
 
+	len = convertLongIntToAnyBase(num, ch);
+	return (len - 3);
+}
+
+/**
+* printLongsigned - print lu
+* @valist: va_list arg
+* @index: i
+*
+* Return: nb of char added
+*/
+
+int printLongSigned(va_list vaList, int *index, char ch)
+{
+
+	long int num;
+	unsigned int len;
+	unsigned long int nb;
+	
+	*index += 2;
+	num = va_arg(vaList, long int);
+
+
 	if (num < 0)
 	{
-		num = -num;
+		nb = -num;
 		_putchar('-');
-		len = convertLongIntToAnyBase(num, ch);
+		len = convertLongIntToAnyBase(nb, ch);
 		return (len + 1 - 3);
 	}
 
 	len = convertLongIntToAnyBase(num, ch);
 	return (len - 3);
 }
-
-

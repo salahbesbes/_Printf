@@ -11,21 +11,30 @@
  */
 int main(void)
 {
-	int len, len2;
+	unsigned int len, len2;
 	unsigned int l = 11156465;
 	
 	long int k;
 	long int res = UINT_MAX ;
-_printf("%lu", ULONG_MAX);	
 
-printf("%lu", ULONG_MAX);
+len = _printf("%li", LONG_MIN);
+	len2 = printf("%li", LONG_MIN);
+	/*
+len = _printf("%lX", ULONG_MAX);
+	len2 = printf("%lX", ULONG_MAX);
 
+	len = _printf("%lX - %lX = %lX\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	len2 = printf("%lX - %lX = %lX\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
+len = _printf("%lu", 0UL);
+	len2 = printf("%lu", 0UL);
 
-
-
-
-
+	len = _printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+	len2 = printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+	len = _printf("%li", LONG_MIN);
+	len2 = printf("%li", LONG_MIN);
+		len = _printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
 
 len = _printf("%ld", 1024UL);
 	len2 = printf("%ld", 1024UL);
@@ -60,7 +69,7 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
  
 
 
-
+*/
 
 
 

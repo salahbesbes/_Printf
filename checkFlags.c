@@ -8,12 +8,12 @@
 */
 int (*checkLflags(char ch))(va_list valist, int *index, char ch)
 {
-	int j, i, found = -1;
+	int j;
 
 	constFormat m[] = {
-		{'u', printLongUnsigned},
-		{'d', printLongUnsigned},
-		{'i', printLongUnsigned},
+		{'u', printLongSigned},
+		{'d', printLongSigned},
+		{'i', printLongSigned},
 		{'x', printLongUnsigned},
 		{'X', printLongUnsigned},
 		{'o', printLongUnsigned},
