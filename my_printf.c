@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 			}
 			if (format[i + 1] == 'h')
 			{
-				printShort = checkLflags(format[i + 2]);
+				printShort = checkShortFlags(format[i + 2]);
 				if (printShort)
 				{
 					nbOfCharAdded += printShort(valist, index, format[i + 2]);

@@ -69,8 +69,8 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len = _printf("%ld\n", 1024UL);
 	len2 = printf("%ld\n", 1024UL);
 	*/
-	len = _printf("%lu\n", ULONG_MAX);
-	len2 = printf("%lu\n", ULONG_MAX);
+	len = _printf("%lu\n", -1);
+	len2 = printf("%lu\n", -1);
  
 
 

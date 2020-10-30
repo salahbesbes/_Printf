@@ -62,14 +62,16 @@ int convertShortIntToAnyBase(unsigned int num, char ch)
 int printShortUnsigned(va_list vaList, int *index, char ch)
 {
 
-	unsigned short int num;
+	unsigned int num;
 	unsigned int len;
+	unsigned short nb;
 
 	*index += 2;
 	num = va_arg(vaList, unsigned int);
+	
+	nb = num < 0 ? -num : num;
 
-
-	len = convertLongIntToAnyBase(num, ch);
+	len = convertLongIntToAnyBase(nb, ch);
 	return (len - 3);
 }
 
@@ -91,6 +93,7 @@ int printShortSigned(va_list vaList, int *index, char ch)
 	*index += 2;
 	num = va_arg(vaList, int);
 
+	printf(" num = %d\n", num);
 
 	if (num < 0)
 	{
