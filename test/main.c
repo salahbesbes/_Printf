@@ -69,15 +69,25 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
  
 
+	len = _printf("%lu\n", ULONG_MAX);
+	len2 = printf("%lu\n", ULONG_MAX);
 
 
+	/*
+	len = _printf("%lu\n", ULONG_MAX);
+	len2 = printf("%lu\n", ULONG_MAX);
+_printf("%hd + %hd = %hd\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
+printf("%hd + %hd = %hd\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
 
+_printf("%ld", LONG_MIN);
+printf("%ld", LONG_MIN);
+_printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
 
+printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+_printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
+printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
 
-
-
-
-
+ */
 
 
 	printf("\n got %d  expect = %d\n", len , len2);
