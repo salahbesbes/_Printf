@@ -11,7 +11,7 @@
 * Return: string
 */
 
-int convertLongIntToAnyBase(unsigned long long int num, char ch)
+int convertLongIntToAnyBase(unsigned long int num, char ch)
 {
 	char *bases = "0123456789abcdef";
 	char *ptr = NULL, *buffer = NULL;

@@ -41,7 +41,7 @@ int treatAllCases(const char *format, int *i, int *nbOfCharAdded, va_list valist
 char *getAllFlags(int pos, char *p);
 int (*checkLflags(char ch))(va_list valist, int *i, char ch);
 int printLongUnsigned(va_list vaList, int *index, char ch);
-int convertLongIntToAnyBase(unsigned long long int num, char ch);
+int convertLongIntToAnyBase(unsigned long int num, char ch);
 int printLongSigned(va_list vaList, int *index, char ch);
 
 
