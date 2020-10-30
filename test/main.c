@@ -17,6 +17,7 @@ int main(void)
 
 	/*
 
+*/
 len = _printf("%hd", SHRT_MAX);
 	len2 = printf("%hd", SHRT_MAX);
 
@@ -66,9 +67,6 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len = _printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len2 = printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
-	len = _printf("%ld\n", 1024UL);
-	len2 = printf("%ld\n", 1024UL);
-	*/
  
 
 
