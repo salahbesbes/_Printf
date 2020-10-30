@@ -5,9 +5,7 @@
 int _printf(const char *format, ...)
 {
 	va_list valist;
-	int i, *index, nbOfCharAdded = 0, fl = 0;
-	int (*funcOfEachType)(va_list valist, int *index);
-	char *allFlags;
+	int i, *index, nbOfCharAdded = 0;
 	index = &i;
 	
 	va_start(valist, format);
@@ -17,10 +15,13 @@ int _printf(const char *format, ...)
 	while (format && format[i])
 	{
 		if (format[i] == '%')
-		{
+		{	/*
+			   char *allFlags;
+			   int (*funcOfEachType)(va_list valist, int *index);
 			allFlags = getAllFlags(i, (char *)format);
 			checkflags(allFlags);
 			printf(" allFlags = %s\n", allFlags);
+			*/
 			treatAllCases(format, index, &nbOfCharAdded, valist);
 			/*
 			if (format[i + 1] == '%')

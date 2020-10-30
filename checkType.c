@@ -26,7 +26,6 @@ int (*checkType(char ch))(va_list valist, int *index)
 			{'S', replaceNonPrintableChar},
 			{'p', handleP},
 			{'R', rot13},
-			{'l', handleL},
 			{'\0', NULL}
 		};
 

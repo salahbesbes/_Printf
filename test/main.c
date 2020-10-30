@@ -11,11 +11,11 @@
  */
 int main(void)
 {
-	 
+	 /*
 	int len, len2;
 	unsigned int l = 11156465;
 	long int res = UINT_MAX ;
-	
+	*/
 
 
 

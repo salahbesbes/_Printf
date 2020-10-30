@@ -72,6 +72,7 @@ int rev_string(va_list vaList, int *index)
 	char tmp, *newStr;
 
 	*index += 2;
+	newStr = va_arg(vaList, char*);
 	newStr = strCopyAlloc(newStr);
 	if (!newStr)
 		return (-2);

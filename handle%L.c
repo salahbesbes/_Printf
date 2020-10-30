@@ -10,7 +10,6 @@
 * @a: 
 *
 * Return:
-*/
 
 int handleL(va_list vaList, int *index)
 {
@@ -20,3 +19,4 @@ int handleL(va_list vaList, int *index)
 	printf(" i = %d\n", i);
 	
 }
+*/

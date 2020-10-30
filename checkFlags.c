@@ -2,10 +2,12 @@
 #include "holberton.h"
 #include <stdlib.h>
 #include <stdio.h>
+
+
+/*
 int (*checkflags(char *str))(va_list valist, int *index)
 {
-		int j, found = 0, i, k;
-		char *flags;
+		int j, i;
 
 		print_t m[] = {
 			{'u', print_dec},
@@ -25,3 +27,4 @@ int (*checkflags(char *str))(va_list valist, int *index)
 	return (NULL);
 		
 }
+*/

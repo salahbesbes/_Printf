@@ -49,7 +49,6 @@ int convertLongIntToBase16(long int num)
 int handleP(va_list vaList, int *index)
 {
 	long int num;
-	char *str;
 	int len;
 
 	*index += 2;
