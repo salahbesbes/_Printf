@@ -1,60 +1,105 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "holberton.h"
-
-/**
-* reallocCopy - realloc and copy
-* @format: str
-* @newSize: int
-*
-* Return: str
-*/
-
-char *reallocCopy(char *format, int newSize)
+#include <stdarg.h>
+#include <stdlib.h>
+int print_c(va_list arg, int *index)
 {
-	int i, len;
-	char *newP;
+	char ch;
+	ch = va_arg(arg, int);
 
-	for (len = 0; format[len]; len++)
-	;
-
-	newP = malloc(sizeof(char) * (newSize + 1));
-
-	for (i = 0; i < newSize + 1; i++)
+	*index += 2;
+	if ( ch == '\0')
 	{
-		if (format[i])
-			newP[i] = format[i];
-		else
-			newP[i] = '*';
+		_putchar('\0');
+		return (1 - 2);
 	}
-	newP[i] = '\0';
-	return (newP);
+	_putchar(ch);
+  	return (1 - 2);    
 }
 
-/**
-* strCopyAlloc - copy and allocate str
-* @format: const str
-*
-* Return: new pointer
-*/
-
-char *strCopyAlloc(const char *format)
+int print_dec(va_list arg, int *index)
 {
-	int i, len;
-	char *p;
+	int n = va_arg(arg, int);
+	int num;
+	int last = n % 10;
+	int dig;
+	int exp = 1;
+	int i = 1;
 
-	for (len = 0; format[len]; len++)
-	;
+	n = n / 10;
+	num = n;
 
-	p = malloc(sizeof(char) * (len + 1));
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			dig = num / exp;
+			_putchar(dig + '0');
+			num = num - (dig * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
 
-	for (i = 0; format[i]; i++)
-		p[i] = format[i];
-	p[i] = '\0';
-
-	return (p);
+  return (0);     
 }
+
+int print_int(va_list arg, int *index)
+{
+	int n = va_arg(arg, int);
+	int num;
+	int last = n % 10;
+	int dig;
+	int exp = 1;
+	int i = 1;
+
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			dig = num / exp;
+			_putchar(dig + '0');
+			num = num - (dig * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
+
+       return (i);
+}
+	
 /**
 * _puts - print a string
 * @str: str
@@ -62,7 +107,7 @@ char *strCopyAlloc(const char *format)
 * Return: void
 */
 
-void _puts(char *str)
+int _puts(char *str)
 {
 	unsigned int i;
 
@@ -71,36 +116,23 @@ void _puts(char *str)
 		_putchar(str[i]);
 	}
 
-}
-
-
-/**
-* _putchar - print single char
-* @c: char
-*
-* Return: int
-*/
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-
-/**
-* _strlen - return the length of the string
-* @str: str
-*
-* Return: length except '\0'
-*/
-
-int _strlen(const char *str)
-{
-	unsigned int i;
-
-	for (i = 0; str[i]; i++)
-	;
 	return (i);
 }
+int print_strings(va_list arg, int *index)
+{
+	char *str;
+	unsigned int i;
 
-
+	*index +=2;
+	str = va_arg(arg, char *);
+	if (!str || *str == '\0')
+	{
+		_puts("(null)");
+		return ( 6 - 2);
+	}
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		_putchar(str[i]);
+	}
+	return (i - 2);
+}

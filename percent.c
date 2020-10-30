@@ -1,23 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "holberton.h"
-
-
 /**
-* handlePercent - if we found '%' we will replace replce it by '\'
+* handlePercent - handlePercent
 * @index: int
-* @p: str
 *
-* Return:newP
+* Return: int
 */
 
-char *handlePercent(int index, char *p)
+int handlePercent()
 {
 
-	int i;
-
-	for (i = index; p[i]; i++)
-		p[i] = p[i + 1];
-
-	return (p);
+	return (0);
 }

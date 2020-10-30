@@ -1,3 +1,5 @@
+#include <stdarg.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
@@ -6,148 +8,155 @@
 
 
 /**
-* convertBase - convert a positice integer to any base
-* @num: unsigned int to convert
-* @base: (2 - 8 - 10 - 16)
-* @type: char
+* toBase8 - convert a positice integer to base 8
+* @vaList: arg
+* @index: index
 *
 * Return: str need free()
 */
 
-char *convertBase(unsigned int num, unsigned int base, char type)
+int toBase8(va_list vaList, int *index)
 {
 
 	char *bases = "0123456789abcdef";
 	char *ptr, *buffer;
+	unsigned int num, len;
 
-	if (type == 'X')
-		bases = "0123456789ABCDEF";
-	/* filling the array from the end to the start*/
-
+	*index += 2;
+	num = va_arg(vaList, unsigned int);
 	buffer = malloc(sizeof(char) * 50);
+	if (!buffer)
+		return (-2);
 	ptr = &buffer[49];
 	*ptr = '\0';
 	do {
-		/* *--ptr   is executed before the assainment do*/
-		*--ptr = bases[num % base];
-		num /= base;
+		*--ptr = bases[num % 8];
+		num /= 8;
 	} while (num != 0);
-	/* we are not traiting the negative int*/
-	return (ptr);
+	len = _puts(ptr);
+	free(buffer);
+	return (len - 2);
 }
 /**
- * _atoi - didnt use int
- * s: str
- * Return: integer
- */
-int _atoi(char *s)
-{
-
-	int j, firstNumber = 1, negatif = 1;
-	unsigned int num = 0;
-
-	j = 0;
-	while (s[j] && firstNumber)
-	{
-		if (s[j] == '-' && !num)
-			negatif *= -1;
-		if (s[j] >= '0' && s[j] <= '9' && firstNumber)
-		{
-			num *= 10;
-			num += s[j] - '0';
-		}
-		else if (num > 0)
-			firstNumber = 0;
-		j++;
-	};
-	num *= negatif;
-	return (num);
-}
-
-/**
-* numToString - convert int ro string
-* @n: int
+* toBase2 - convert a positice integer to base 2
+* @vaList: arg
+* @index: index
 *
 * Return: str need free()
 */
 
-char *numToString(int n)
+int toBase2(va_list vaList, int *index)
 {
-	int i = 0, m = 0, nb = 0, len = 0;
-	char *str;
 
-	nb = n;
-	if (nb < 0)
-		nb *= -1;
-	for (m = 0; nb > 0; nb /= 10, m++)
-	;
-	len = m - 1;
-	if (n < 0)
-	{
-		nb = -n;
-		str = malloc(sizeof(char) * (m + 1));
-		str[0] = '-';
-		for (i = m; i > 0; i--, nb /= 10)
-			str[i] = (nb % 10) + '0';
-		str[m + 1] = '\0';
+	char *bases = "0123456789abcdef";
+	char *ptr, *buffer;
+	unsigned int num, len;
 
-	}
-	else
-	{
-		str = malloc(sizeof(char) * (m));
-		for (i = len; i >= 0; i--, n /= 10)
-			str[i] = (n % 10) + '0';
-		str[len + 1] = '\0';
-	}
-	return (str);
+	*index += 2;
+	num = va_arg(vaList, unsigned int);
+	buffer = malloc(sizeof(char) * 50);
+	if (!buffer)
+		return (-2);
+	ptr = &buffer[49];
+	*ptr = '\0';
+	do {
+		*--ptr = bases[num % 2];
+		num /= 2;
+	} while (num != 0);
+	len = _puts(ptr);
+	free(buffer);
+	return (len - 2);
+}
+/**
+* toBase16 - convert a positice integer to base 16
+* @vaList: arg
+* @index: index
+*
+* Return: str need free()
+*/
+
+int toBase16(va_list vaList, int *index)
+{
+
+	char *bases = "0123456789abcdef";
+	char *ptr, *buffer;
+	unsigned int num, len;
+
+	*index += 2;
+	num = va_arg(vaList, unsigned int);
+	buffer = malloc(sizeof(char) * 50);
+	if (!buffer)
+		return (-2);
+	ptr = &buffer[49];
+	*ptr = '\0';
+	do {
+		*--ptr = bases[num % 16];
+		num /= 16;
+	} while (num != 0);
+	len = _puts(ptr);
+	free(buffer);
+	return (len - 2);
+}
+/**
+* toBase10 - convert a positice integer to base 10 unsigned
+* @vaList: arg
+* @index: index
+*
+* Return: str need free()
+*/
+
+int toBase16X(va_list vaList, int *index)
+{
+
+	char *bases = "0123456789ABCDEF";
+	char *ptr, *buffer;
+	unsigned int num, len;
+
+	*index += 2;
+	num = va_arg(vaList, unsigned int);
+	buffer = malloc(sizeof(char) * 50);
+	if (!buffer)
+		return (-2);
+	ptr = &buffer[49];
+	*ptr = '\0';
+	do {
+		*--ptr = bases[num % 16];
+		num /= 16;
+	} while (num != 0);
+	len = _puts(ptr);
+	free(buffer);
+	return (len - 2);
 }
 
 /**
- * rot13 -  encode string wih rot13
- * @str: string
- *
- * Return: encodded string
- */
-char *rot13(char *str)
-{
-	int i, j;
-	char *rot = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	char *newStr, *alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+* toBase10 - convert a positice integer to base 10 unsigned
+* @vaList: arg
+* @index: index
+*
+* Return: str need free()
+*/
 
-	newStr = strCopyAlloc(str);
-	for (i = 0; newStr[i]; i++)
-	{
-		for (j = 0; j < 52; j++)
-		{
-			if (newStr[i] == alpha[j])
-			{
-				newStr[i] = rot[j];
-				break;
-			}
-		}
-	}
-	return (newStr);
+int toBase10(va_list vaList, int *index)
+{
+
+	char *bases = "0123456789ABCDEF";
+	char *ptr = NULL, *buffer = NULL;
+	unsigned int num = 0, len = 0;
+
+	*index += 2;
+	num = va_arg(vaList, unsigned int);
+
+	buffer = malloc(sizeof(char) * 50);
+	if (!buffer)
+		return (-2);
+	ptr = &buffer[49];
+	*ptr = '\0';
+	do {
+		*--ptr = bases[num % 10];
+		num /= 10;
+	} while (num != 0);
+	len = _puts(ptr);
+	free(buffer);
+	return (len - 2);
 }
 
-/**
- * rev_string - everses a string.
- * @s: string
- * Return: string
- */
-char *rev_string(char *s)
-{
-	int length = 0, i;
-	char tmp, *newStr;
-
-	newStr = strCopyAlloc(s);
-	for (i = 0; newStr[i]; i++)
-		length++;
-
-	for (i = 0; i < length / 2; i++)
-	{
-		tmp = newStr[length - 1 - i];
-		newStr[length - 1 - i] = newStr[i];
-		newStr[i] = tmp;
-	}
-	return (newStr);
-}

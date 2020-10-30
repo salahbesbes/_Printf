@@ -13,9 +13,9 @@
 * Error: 0
 */
 
-int checkTypeForClean(char c)
+int checkFlagsForType(char c)
 {
-	char type[] = "sdifxulcbegouxXRrp";
+	char type[] = "sifxulcdbegouxXRrp";
 	int i;
 
 	if (c == '\0')
@@ -43,7 +43,7 @@ int checkTypeForClean(char c)
 * Return: the length of the char we want to delete including % and type
 */
 
-char *deleteChar(int pos, char *p)
+char *getAllFlags(int pos, char *p)
 {
 
 	int i, j, nb, ok, len;
@@ -58,8 +58,8 @@ char *deleteChar(int pos, char *p)
 		{
 			for (j = 0; p[i + j]; j++)
 			{
-				ok = checkTypeForClean(p[i + j]);
-				if (ok)
+				ok = checkFlagsForType(p[i + j]);
+				if (ok == 1)
 				{
 					nb = j + 1;
 					break;
@@ -69,17 +69,15 @@ char *deleteChar(int pos, char *p)
 		}
 	}
 
-	newP = malloc(sizeof(char) * (len - nb + 1));
+	if (nb == 0)
+		return (NULL);
+	newP = malloc(sizeof(char) * (nb + 1));
 
-	for (j = 0; j < (len - nb + 1); j++)
+	for (j = 0; j < (nb + 1); j++)
 	{
-		if (j < i)
-			newP[j] = p[j];
-		else
-			newP[j] = p[j + nb + 1];
+		newP[j] = p[pos + j + 1];
 	}
-
-	free(p);
+	newP[j] = '\0';
 	return (newP);
 }
 
