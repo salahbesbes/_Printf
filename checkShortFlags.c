@@ -11,7 +11,7 @@ int (*checkShortFlags(char ch))(va_list valist, int *index, char ch)
 	int j;
 
 	constFormat m[] = {
-		{'u', printShortSigned},
+		{'u', printShortUnsigned},
 		{'d', printShortSigned},
 		{'i', printShortSigned},
 		{'x', printShortUnsigned},

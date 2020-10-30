@@ -17,7 +17,6 @@ int convertLongIntToAnyBase(unsigned long int num, char ch)
 	char *ptr = NULL, *buffer = NULL;
 	unsigned int len = 0, base = 10;
 
-
 	switch (ch)
 	{
 		case 'x':
@@ -36,7 +35,8 @@ int convertLongIntToAnyBase(unsigned long int num, char ch)
 				base = 16;
 				break;
 			}
-		break;
+		default:
+			break;
 	}
 	buffer = malloc(sizeof(char) * 50);
 	if (!buffer)

@@ -11,7 +11,7 @@ int (*checkLflags(char ch))(va_list valist, int *index, char ch)
 	int j;
 
 	constFormat m[] = {
-		{'u', printLongSigned},
+		{'u', printLongUnsigned},
 		{'d', printLongSigned},
 		{'i', printLongSigned},
 		{'x', printLongUnsigned},

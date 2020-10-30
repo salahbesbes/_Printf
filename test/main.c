@@ -15,22 +15,22 @@ int main(void)
 	
 
 
+	/*
 
 len = _printf("%hd", SHRT_MAX);
 	len2 = printf("%hd", SHRT_MAX);
 
-	/*
 
 len = _printf("%li", LONG_MIN);
-	len2 = printf("%li", LONG_MIN);
+	len2 = printf("%li\n", LONG_MIN);
 len = _printf("%lX", ULONG_MAX);
-	len2 = printf("%lX", ULONG_MAX);
+	len2 = printf("%lX\n", ULONG_MAX);
 
 	len = _printf("%lX - %lX = %lX\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len2 = printf("%lX - %lX = %lX\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
-len = _printf("%lu", 0UL);
-	len2 = printf("%lu", 0UL);
+len = _printf("%lu\n", 0UL);
+	len2 = printf("%lu\n", 0UL);
 
 	len = _printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
 	len2 = printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
@@ -39,36 +39,38 @@ len = _printf("%lu", 0UL);
 		len = _printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
 	len2 = printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
 
-len = _printf("%ld", 1024UL);
-	len2 = printf("%ld", 1024UL);
-len = _printf("%lu", 0UL);
-	len2 = printf("%lu", 0UL);
-len = _printf("%lu", ULONG_MAX);
-	len2 = printf("%lu", ULONG_MAX);
+len = _printf("%lu\n", 0UL);
+	len2 = printf("%lu\n", 0UL);
+
 	len = _printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
 	len2 = printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
 len = _printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len2 = printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
 len = _printf("%lo", 1024UL);
-	len2 = printf("%lo", 1024UL);
+	len2 = printf("%lo\n", 1024UL);
 
 	len = _printf("%lo", 0UL);
-	len2 = printf("%lo", 0UL);
+	len2 = printf("%lo\n", 0UL);
 
 	len = _printf("%lo", ULONG_MAX);
-	len2 = printf("%lo", ULONG_MAX);
+	len2 = printf("%lo\n", ULONG_MAX);
 len = _printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
 	len2 = printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
 len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len2 = printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len = _printf("%lx", 0UL);
-	len2 = printf("%lx", 0UL);
+	len2 = printf("%lx\n", 0UL);
 
 
 	len = _printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 	len2 = printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
+	len = _printf("%ld\n", 1024UL);
+	len2 = printf("%ld\n", 1024UL);
+	*/
+	len = _printf("%lu\n", ULONG_MAX);
+	len2 = printf("%lu\n", ULONG_MAX);
  
 
 
@@ -81,7 +83,6 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
 
 
-*/
 
 	printf("\n got %d  expect = %d\n", len , len2);
 	fflush(stdout);
