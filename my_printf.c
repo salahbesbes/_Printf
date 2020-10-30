@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	index = &i;
 	va_start(valist, format);
 	if (format == NULL)
-		return (0);
+		return (-1);
 	i = 0;
 	while (format && format[i])
 	{

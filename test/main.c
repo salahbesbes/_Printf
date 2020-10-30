@@ -15,6 +15,187 @@ int main(void)
 	unsigned int len = 1, len2= 1;
 	
 
+	len = _printf("->%s%c %d%%... %sPlease wait%c\n", "Loading", ':', 98, "", '\0');
+	len2 = printf("->%s%c %d%%... %sPlease wait%c\n", "Loading", ':', 98, "", '\0');
+
+
+len = _printf("The %s value of an %c%c%c is %d\nIts min value is %i\n", "max", 'i', 'n', 't', INT_MAX, INT_MIN);
+	len2 = printf("The %s value of an %c%c%c is %d\nIts min value is %i\n", "max", 'i', 'n', 't', INT_MAX, INT_MIN);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("The %s value of an %c%c%c is %i\nIts min value is %d\n", "max", 'i', 'n', 't', INT_MAX, INT_MIN);
+	len2 = printf("The %s value of an %c%c%c is %i\nIts min value is %d\n", "max", 'i', 'n', 't', INT_MAX, INT_MIN);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+
+	len = _printf("%s%d bytes in %i %c%c\n", "There is ", -1024, -1, 'K', 'B');
+	len2 = printf("%s%d bytes in %i %c%c\n", "There is ", -1024, -1, 'K', 'B');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%s%i bytes in %d %c%c\n", "There is ", -1024, -1, 'K', 'B');
+	len2 = printf("%s%i bytes in %d %c%c\n", "There is ", -1024, -1, 'K', 'B');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+len = _printf("The %s value of an unsigned%c%c%c is %u\n", "max", 'i', 'n', 't', UINT_MAX);
+	len2 = printf("The %s value of an unsigned%c%c%c is %u\n", "max", 'i', 'n', 't', UINT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("The %s value of an unsigned%c%c%c is %o\n", "max", 'i', 'n', 't', UINT_MAX);
+	len2 = printf("The %s value of an unsigned%c%c%c is %o\n", "max", 'i', 'n', 't', UINT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("The %s value of an unsigned%c%c%c is %x\n", "max", 'i', 'n', 't', UINT_MAX);
+	len2 = printf("The %s value of an unsigned%c%c%c is %x\n", "max", 'i', 'n', 't', UINT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("The %s value of an unsigned%c%c%c is %X\n", "max", 'i', 'n', 't', UINT_MAX);
+	len2 = printf("The %s value of an unsigned%c%c%c is %X\n", "max", 'i', 'n', 't', UINT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+len = _printf("%s%S%c", "Show me the codes: ", "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x10", '\n');
+	len2 = printf("%s\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\x08\\x09\\x0A\\x10%c", "Show me the codes: ", '\n');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+
+len = _printf("%s%u bytes in %u %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	len2 = printf("%s%u bytes in %u %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%s%o bytes in %o %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	len2 = printf("%s%o bytes in %o %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%s%x bytes in %x %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	len2 = printf("%s%x bytes in %x %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%s%X bytes in %X %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	len2 = printf("%s%X bytes in %X %c%c\n", "There is ", 1024, 1, 'K', 'B');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+
+	len = _printf("%R\n%r\n", "Ubyoregba Fpubby !", "! loohcS notrebloH");
+	len2 = printf("Holberton School !\nHolberton School !\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%R\n%r\n", "Ubyoregba Fpubby !", "!loohcS notrebloH");
+	len2 = printf("Holberton School !\nHolberton School!\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	void *ptr = (void *)0x7faf51f0f608;
+len = _printf("%p\n%r\n", ptr, "! loohcS notrebloH");
+	len2 = printf("%p\nHolberton School !\n", ptr);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%p\n%r\n", ptr, "!loohcS notrebloH");
+	len2 = printf("%p\nHolberton School!\n", ptr);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+len = _printf(NULL);
+	len2 = printf(NULL);
+	fflush(stdout);
+
+
+	printf(" len = %d  len2 %d\n", len, len2);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+
 
 
 len = _printf("%hd", SHRT_MAX);
@@ -33,7 +214,7 @@ len = _printf("%lu\n", 0UL);
 	len2 = printf("%lu\n", 0UL);
 
 	len = _printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
-	len2 = printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+	len2 = printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MuIN + LONG_MAX));
 	len = _printf("%li", LONG_MIN);
 	len2 = printf("%li", LONG_MIN);
 		len = _printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
@@ -127,17 +308,7 @@ printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
 
 
 
-	printf("\n got %d  expect = %d\n", len , len2);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
-	*/
 
-	/*
 
 
 
@@ -145,10 +316,6 @@ printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
 
 
 _printf("%s", "This sentence is retrieved from va_args!\n");
-
-
-
-	_printf("%+05.5d", 50);
 
 
 	_printf("%p\n", (void *)0x7fff5100b608);
@@ -166,16 +333,41 @@ _printf("%s", "This sentence is retrieved from va_args!\n");
 _printf("%pppp", (void *)0x7fff5100b6f8);
 printf("%pppp", (void *)0x7fff5100b6f8);
 
+	len = _printf("%S\n", "Holberton\nSchool");
+	len = _printf("%S\n", "Holberton\nSchool");
+	len = _printf("%S\n", "No special character.");
+	len2 = printf("%S\n", "No special character.");
+	len = _printf("%S\n", "\n");
+	len2 = printf("%S\n", "\n");
+	*/
+	/*
+len = _printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
+	len2 = printf("- What did you say?\n- %s\n- That's what I thought.\n", "");
+
+len = _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+	len2 = printf("Could you print some non-prntable characters?\nSure:\\x1F\\x7F\\x0A\nThanks!\n");
+	len = _printf("%S", "\n");
+	len2 = printf("\\x0A");
+	len = _printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
+len2 = printf("\\x01\\x02\\x03\\x04\\x05\\x06\\x07");
+len = _printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
+	len = _printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
+	len2 = printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
+len = _printf("%S", "No special character.");
+	len2 = printf("No special character.");
+	fflush(stdout);
+	printf(" got %d  expect %d\n", len, len2);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	 * */
 
 
-	_printf("%S\n", "Holberton\nSchool");
-	_printf("%S\n", "No special character.");
-	_printf("%S\n", "\n");
-	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
-	_printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
-	_printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
-
-
+	/*
 
 
 
@@ -208,7 +400,18 @@ printf("%pppp", (void *)0x7fff5100b6f8);
 	printf("%x\n", 1024);
 	_printf("%x\n", -1024);
 	printf("%x\n", -1024);
-	_printf("%x\n", 0);
+	_printf("%x\n", 0);	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("->%s%c %i%%... %sPlease wait%c\n", "Loading", ':', 98, "", '\0');
+	len2 = printf("->%s%c %i%%... %sPlease wait%c\n", "Loading", ':', 98, "", '\0');
+	
+
+
 	printf("%x\n", 0);
 	_printf("%x\n", UINT_MAX);
 	printf("%x\n", UINT_MAX);

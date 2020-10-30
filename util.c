@@ -6,11 +6,8 @@ int print_c(va_list arg, int *index)
 	char ch;
 	ch = va_arg(arg, int);
 
-	if (ch == 0)
-	{
-		printf(" salah besbes \n");
-	}
 	*index += 2;
+
 	_putchar(ch);
   	return (1 - 2);    
 }
