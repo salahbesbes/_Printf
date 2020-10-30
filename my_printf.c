@@ -8,6 +8,7 @@ int _printf(const char *format, ...)
 	int i, *index, nbOfCharAdded = 0;
 	int (*funcOfEachType)(va_list valist, int *index);
 	int (*printLong)(va_list valist, int *index, char ch);
+	int (*printShort)(va_list valist, int *index, char ch);
 	
 	index = &i;
 	va_start(valist, format);
@@ -49,6 +50,19 @@ int _printf(const char *format, ...)
 				else 
 					i++;
 				continue;
+			}
+			if (format[i + 1] == 'h')
+			{
+				printShort = checkLflags(format[i + 2]);
+				if (printShort)
+				{
+					nbOfCharAdded += printShort(valist, index, format[i + 2]);
+					i++;
+				}
+				else 
+					i++;
+				continue;
+
 			}
 			else
 			{

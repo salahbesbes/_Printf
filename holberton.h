@@ -43,6 +43,10 @@ int (*checkLflags(char ch))(va_list valist, int *i, char ch);
 int printLongUnsigned(va_list vaList, int *index, char ch);
 int convertLongIntToAnyBase(unsigned long int num, char ch);
 int printLongSigned(va_list vaList, int *index, char ch);
+int convertShortIntToAnyBase(unsigned int num, char ch);
+int printShortUnsigned(va_list vaList, int *index, char ch);
+int printShortSigned(va_list vaList, int *index, char ch);
+int (*checkShortFlags(char ch))(va_list valist, int *index, char ch);
 
 
 
