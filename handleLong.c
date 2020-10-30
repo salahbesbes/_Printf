@@ -69,7 +69,7 @@ int printLongUnsigned(va_list vaList, int *index, char ch)
 	*index += 2;
 	num = va_arg(vaList, unsigned long int);
 
-	nb = num < 0 ? -num : num;
+	nb = num <= 0 ? -num : num;
 	len = convertLongIntToAnyBase(nb, ch);
 	return (len - 3);
 }
