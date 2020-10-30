@@ -11,13 +11,12 @@
  */
 int main(void)
 {
+	/*
 	unsigned int len = 1, len2= 1;
 	
 
 
-	/*
 
-*/
 len = _printf("%hd", SHRT_MAX);
 	len2 = printf("%hd", SHRT_MAX);
 
@@ -71,9 +70,48 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
 	len = _printf("%lu\n", ULONG_MAX);
 	len2 = printf("%lu\n", ULONG_MAX);
+_printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
+printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
+_printf("%lu", 0);
+_printf("%lu\n", 0);
+_printf("%lo", 1024);
+_printf("%lo\n", 1024);
+_printf("%lo", 0);
+_printf("%lo\n", 0);
+_printf("%lx\n", 0);
+len = _printf("%lx\n", ULONG_MAX);
+len2 = printf("%lx\n", ULONG_MAX);
+len = _printf("%lo\n", ULONG_MAX);
+len2 = printf("%lo\n", ULONG_MAX);
+len = _printf("%lu\n", ULONG_MAX);
+len2 = printf("%lu\n", ULONG_MAX);
 
+
+len = _printf("%li\n", LONG_MIN);
+len2 = printf("%li\n", LONG_MIN);
+
+len = _printf("%lo\n", 0UL);
+len2 = printf("%lo\n", 0UL);
+
+len = _printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+len2 = printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+len = _printf("%lx\n", 0UL);
+len2 = printf("%lx\n", 0UL);
+
+
+
+
+
+
+
+
+
+
+*/
 
 	/*
+
+
 	len = _printf("%lu\n", ULONG_MAX);
 	len2 = printf("%lu\n", ULONG_MAX);
 _printf("%hd + %hd = %hd\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
@@ -87,7 +125,6 @@ printf("%li + %li = %li\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
 _printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
 printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
 
- */
 
 
 	printf("\n got %d  expect = %d\n", len , len2);
@@ -98,6 +135,7 @@ printf("%hi + %hi = %hi\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
 		fflush(stdout);
 		return (1);
 	}
+	*/
 
 	/*
 

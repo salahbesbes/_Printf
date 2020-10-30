@@ -86,13 +86,10 @@ int printShortSigned(va_list vaList, int *index, char ch)
 
 	int num;
 	unsigned int len;
-	unsigned int nb;
+	unsigned short int nb;
 	
 	*index += 2;
 	num = va_arg(vaList, int);
-
-	printf(" num = %d\n", num);
-
 	if (num < 0)
 	{
 		nb = -num;
