@@ -11,6 +11,7 @@
  */
 int main(void)
 {
+	/*
 	unsigned int len, len2;
 	unsigned int l = 11156465;
 	
@@ -19,7 +20,6 @@ int main(void)
 
 len = _printf("%li", LONG_MIN);
 	len2 = printf("%li", LONG_MIN);
-	/*
 len = _printf("%lX", ULONG_MAX);
 	len2 = printf("%lX", ULONG_MAX);
 
@@ -80,6 +80,7 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
 
 
+	/*
 	printf("\n got %d  expect = %d\n", len , len2);
 	fflush(stdout);
 	if (len != len2)
@@ -95,7 +96,6 @@ len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
 
 
 
-	/*
 _printf("%s", "This sentence is retrieved from va_args!\n");
 
 
