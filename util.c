@@ -15,6 +15,7 @@ int print_c(va_list arg, int *index)
   	return (1 - 2);    
 }
 
+/*
 int print_dec(va_list arg, int *index)
 {
 	int n = va_arg(arg, int);
@@ -97,6 +98,8 @@ int print_int(va_list arg, int *index)
 
        return (i);
 }
+
+*/
 /**
 * _puts - print a string
 * @str: str
