@@ -102,6 +102,7 @@ int checkNonPrintableChar(char ch)
 
 	char base[16] = "0123456789ABCDEF";
 	char *buffer, *ptr, len;
+	char copy = ch;
 
 	buffer = malloc(sizeof(char) * 10);
 	if (!buffer)
@@ -112,7 +113,9 @@ int checkNonPrintableChar(char ch)
 		*--ptr = base[ch % 16];
 		ch /= 16;
 	} while (ch != 0);
-	*--ptr = '0';
+
+	if (copy < 16)
+		*--ptr = '0';
 	*--ptr = 'x';
 	*--ptr = '\\';
 	len = _puts(ptr);
