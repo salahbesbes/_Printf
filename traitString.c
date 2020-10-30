@@ -132,7 +132,7 @@ int checkNonPrintableChar(char ch)
 int replaceNonPrintableChar(va_list vaList, int *index)
 {
 	char *str;
-	unsigned int i, len;
+	unsigned int i, len = 0;
 
 
 	*index += 2;
@@ -146,6 +146,8 @@ int replaceNonPrintableChar(va_list vaList, int *index)
 		else 
 			_putchar(str[i]);
 	}
+	if (!len)
+		return (-3);
 	return (i + len - 2 - 1);
 }
 
