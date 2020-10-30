@@ -6,8 +6,11 @@ int _printf(const char *format, ...)
 {
 	va_list valist;
 	int i, *index, nbOfCharAdded = 0;
-	index = &i;
+	int (*funcOfEachType)(va_list valist, int *index);
+	int (*printLong)(va_list valist, int *index, char ch);
+	char *allFlags;
 	
+	index = &i;
 	va_start(valist, format);
 	if (format == NULL)
 		return (0);
@@ -15,15 +18,14 @@ int _printf(const char *format, ...)
 	while (format && format[i])
 	{
 		if (format[i] == '%')
-		{	/*
-			   int (*funcOfEachType)(va_list valist, int *index);
-			   char *allFlags;
+		{
+			/*
 			allFlags = getAllFlags(i, (char *)format);
 			checkflags(allFlags);
 			printf(" allFlags = %s\n", allFlags);
-			*/
+			i++;
 			treatAllCases(format, index, &nbOfCharAdded, valist);
-			/*
+			*/
 			if (format[i + 1] == '%')
 			{
 				_putchar(format[i + 1]);
@@ -36,13 +38,27 @@ int _printf(const char *format, ...)
 				i++;
 				continue;
 			}
+			if (format[i + 1] == 'l')
+			{
+				printLong = checkLflags(format[i + 2]);
+				if (printLong)
+				{
+					nbOfCharAdded += printLong(valist, index, format[i + 2]);
+					i++;
+				}
+				else 
+					i++;
+				continue;
+			}
+			else
+			{
 			funcOfEachType = checkType(format[i + 1]);
 			if (funcOfEachType)
 				nbOfCharAdded += funcOfEachType(valist, index);
 			else 
 				i++;
 			continue;
-			*/
+			}
 		}
 		_putchar(format[i]);
 		i++;

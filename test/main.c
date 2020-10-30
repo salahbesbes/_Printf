@@ -12,15 +12,66 @@
 int main(void)
 {
 	int len, len2;
-	/*
 	unsigned int l = 11156465;
+	
+	long int k;
 	long int res = UINT_MAX ;
-	*/
-	len = _printf("iddi%diddiiddi\n", 1024);
-	len2 = printf("iddi%diddiiddi\n", 1024);
+_printf("%lu", ULONG_MAX);	
+
+printf("%lu", ULONG_MAX);
 
 
-	printf(" got = %d expect = %d\n", len, len2);
+
+
+
+
+
+
+len = _printf("%ld", 1024UL);
+	len2 = printf("%ld", 1024UL);
+len = _printf("%lu", 0UL);
+	len2 = printf("%lu", 0UL);
+len = _printf("%lu", ULONG_MAX);
+	len2 = printf("%lu", ULONG_MAX);
+	len = _printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
+len = _printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	len2 = printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+
+len = _printf("%lo", 1024UL);
+	len2 = printf("%lo", 1024UL);
+
+	len = _printf("%lo", 0UL);
+	len2 = printf("%lo", 0UL);
+
+	len = _printf("%lo", ULONG_MAX);
+	len2 = printf("%lo", ULONG_MAX);
+len = _printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+len = _printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	len2 = printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	len = _printf("%lx", 0UL);
+	len2 = printf("%lx", 0UL);
+
+
+	len = _printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	len2 = printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+	printf("\n got %d  expect = %d\n", len , len2);
 	fflush(stdout);
 	if (len != len2)
 	{
@@ -28,6 +79,10 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
+
+
+
+
 
 
 

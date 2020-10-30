@@ -5,26 +5,27 @@
 
 
 /*
-int (*checkflags(char *str))(va_list valist, int *index)
+*/
+int (*checkLflags(char ch))(va_list valist, int *index, char ch)
 {
-		int j, i;
+	int j, i, found = -1;
 
-		print_t m[] = {
-			{'u', print_dec},
-			{'d', print_c},
-			{'\0', NULL}
-		};
-			
-		for (i = 0; str[i]; i++)
-		{
-			for (j = 0; m[j].t; j++)
-			{
-				if (str[i] == m[j].t)
-					printf(" j = %d\n", j);
-			}
-		}
+	constFormat m[] = {
+		{'u', printLongUnsigned},
+		{'d', printLongUnsigned},
+		{'i', printLongUnsigned},
+		{'x', printLongUnsigned},
+		{'X', printLongUnsigned},
+		{'o', printLongUnsigned},
+		{'\0', NULL}
+	};
 
+	for (j = 0; m[j].flags; j++)
+	{
+
+		if (ch == m[j].flags)
+			return (m[j].handleFlags);
+	}
 	return (NULL);
 		
 }
-*/

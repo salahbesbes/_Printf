@@ -19,17 +19,21 @@ int treatAllCases(const char *format, int *i, int *nOfChar, va_list valist)
 	int (*funcOfEachType)(va_list valist, int *index);
 
 	if (format[*i + 1] == '%')
-		{
+	{
 			_putchar(format[*i + 1]);
 			*i += 2;
-		}
-		if (format[*i + 1] == '\0')
-		{
+			*nOfChar -= 1;
+			return (*nOfChar);
+	}
+	if (format[*i + 1] == '\0')
+	{
 			*i += 1;
-		}
-		funcOfEachType = checkType(format[*i + 1]);
-		if (funcOfEachType)
-			*nOfChar += funcOfEachType(valist, i);
+			return(*nOfChar);
+	}
+	printf("f[%d] = %c\n", *i + 1, format[*i + 1]);
+	funcOfEachType = checkType(format[*i + 1]);
+	if (funcOfEachType)
+		*nOfChar += funcOfEachType(valist, i);
 	else 
 		*i += 1;
 	

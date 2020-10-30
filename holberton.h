@@ -11,10 +11,9 @@ typedef struct m
 typedef struct constFormat
 {
 	char flags;
-	int (*handleFlags)(va_list valist, int *index);
+	int (*handleFlags)(va_list valist, int *index, char ch);
 } constFormat;
-int (*checkflags(char *str))(va_list valist, int *i);
-char *getAllFlags(int pos, char *p);
+int (*checkType(char ch))(va_list valist, int *i);
 
 char *strCopyAlloc(char *format);
 int _printf(const char *format, ...);
@@ -39,8 +38,10 @@ int handleP(va_list vaList, int *index);
 int rot13(va_list vaList, int *index);
 int handleL(va_list vaList, int *index);
 int treatAllCases(const char *format, int *i, int *nbOfCharAdded, va_list valist);
-int (*checkType(char ch))(va_list valist, int *i);
-
+char *getAllFlags(int pos, char *p);
+int (*checkLflags(char ch))(va_list valist, int *i, char ch);
+int printLongUnsigned(va_list vaList, int *index, char ch);
+int convertLongIntToAnyBase(unsigned long long int num, char ch);
 
 
 
