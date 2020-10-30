@@ -6,12 +6,11 @@ int print_c(va_list arg, int *index)
 	char ch;
 	ch = va_arg(arg, int);
 
-	*index += 2;
-	if ( ch == '\0')
+	if (ch == 0)
 	{
-		_putchar('\0');
-		return (1 - 2);
+		printf(" salah besbes \n");
 	}
+	*index += 2;
 	_putchar(ch);
   	return (1 - 2);    
 }
@@ -43,7 +42,7 @@ int print_strings(va_list arg, int *index)
 
 	*index +=2;
 	str = va_arg(arg, char *);
-	if (!str || *str == '\0')
+	if (!str)
 	{
 		_puts("(null)");
 		return ( 6 - 2);

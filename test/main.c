@@ -12,24 +12,16 @@
 int main(void)
 {
 	 /*
-	 */
 	int len, len2;
 	unsigned int l = 11156465;
 	long int res = UINT_MAX ;
-
-
-	len = _printf("aaa%S", "\n");
-	len2 = printf("aaa\\x0A");
+	*/
 	
-	printf(" got = %d expect = %d\n", len , len2);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
-/*
+
+
+
+
+	/*
 _printf("%s", "This sentence is retrieved from va_args!\n");
 
 

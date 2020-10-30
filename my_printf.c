@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 			{
 				_putchar(format[i + 1]);
 				i += 2;
+				nbOfCharAdded--;
 				continue;;
 			}
 			if (format[i + 1] == '\0')
